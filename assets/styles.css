@@ -6,7 +6,7 @@ Fresh emerald-green palette — clean, modern, and vivid.
 :root {
   --storm-primary: #2ec0ff; /* emerald green */
   --storm-accent:  #bd2b4dbf; /* deep forest accent */
-  --storm-bg:      #bc919141; /* rich dark evergreen background */
+  --storm-bg:      #bc919172; /* rich dark evergreen background */
   --storm-panel:   #da3f654c; /* secondary panel surface */
   --storm-text:    #817070; /* light mint white text */
   --storm-muted:   #a0c4eb; /* desaturated moss tone */
@@ -17,7 +17,7 @@ Fresh emerald-green palette — clean, modern, and vivid.
 
 /* Base background and text */
 html, body {
-  background: var(--storm-bg);
+  /* background: var(--storm-bg); */
   color: var(--storm-text);
 }
 
@@ -28,12 +28,12 @@ html, body {
 }
 
 /* Navbar */
-/* .nav-gradient {
-  background: linear-gradient(180deg, rgba(54, 68, 34, 0), rgba(14,28,20,0.9)); */
-  /* border-bottom: 1px solid rgba(255,255,255,0.06);
+.nav-gradient {
+  /* background: linear-gradient(180deg, rgba(54, 68, 34, 0), rgba(14,28,20,0.9)); */ 
+  /* border-bottom: 1px solid rgba(255,255,255,0.06); */
   backdrop-filter: blur(10px);
-  box-shadow: 0 1px 8px rgba(80,200,120,0.25);  */
-/* } */ 
+  /* box-shadow: 0 1px 8px rgba(80,200,120,0.25);  */
+}
 /*  */
 /* Glass & Glow */
 .glass {
@@ -102,25 +102,7 @@ html, body {
   --bs-link-hover-color: var(--storm-accent);
 }
 
-.gradient-sphere {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  width: 750px;
-  height: 250px;
-  border-radius: 50%;
-  
-  background: radial-gradient(
-    circle at center,
-    rgb(153, 0, 255),
-    rgba(105, 136, 64, 0) 70%
-  );
-  
-  filter: blur(200px);
-  z-index: 0;
-}
+
 
 html, body {
   height: 100%;
@@ -176,7 +158,7 @@ nav, header, main, footer { position: relative; z-index: 1; }
   background: radial-gradient(
     circle at center,
     rgb(153, 0, 255),
-    rgba(105, 136, 64, 0) 70%
+    rgb(106, 28, 145) 70%
   );
   -webkit-filter: blur(200px);
   filter: blur(200px);
@@ -187,8 +169,8 @@ nav, header, main, footer { position: relative; z-index: 1; }
 /* Show it on phones too, just smaller/softer */
 @media (max-width: 768px) {
   .gradient-sphere {
-    width: 420px;
-    height: 160px;
+    width: 750px;
+    height: 250px;
     -webkit-filter: blur(140px);
     filter: blur(140px);
     opacity: 0.95;
