@@ -1,0 +1,162 @@
+/* =========================
+Emerald Storm Multi-Page Starter (Bootstrap 5)
+Fresh emerald-green palette — clean, modern, and vivid.
+========================= */
+
+:root {
+  --storm-primary: #2ec0ff; /* emerald green */
+  --storm-accent:  #bd2b4dbf; /* deep forest accent */
+  --storm-bg:      #bc919141; /* rich dark evergreen background */
+  --storm-panel:   #da3f654c; /* secondary panel surface */
+  --storm-text:    #817070; /* light mint white text */
+  --storm-muted:   #a0c4eb; /* desaturated moss tone */
+  --storm-gradient:
+    radial-gradient(1000px 500px at 20% -10%, rgba(80,200,120,0.30), rgba(47,133,90,0.15) 40%, rgba(14,28,20,0) 70%),
+    radial-gradient(800px 400px at 80% 10%,  rgba(47,133,90,0.25), rgba(80,200,120,0.15) 50%, rgba(14,28,20,0) 80%);
+}
+
+/* Base background and text */
+html, body {
+  background: var(--storm-bg);
+  color: var(--storm-text);
+}
+
+/* Gradient background for hero and sections */
+.bg-storm {
+  background: var(--storm-bg);
+  /* border: 10px solid rgba(217, 255, 0, 0.042); */
+}
+
+/* Navbar */
+/* .nav-gradient {
+  background: linear-gradient(180deg, rgba(54, 68, 34, 0), rgba(14,28,20,0.9)); */
+  /* border-bottom: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 8px rgba(80,200,120,0.25);  */
+/* } */ 
+/*  */
+/* Glass & Glow */
+.glass {
+  background: rgba(7, 34, 65, 0.355);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.glow {
+  box-shadow: 0 0 2rem rgb(80, 118, 200), 0 0 2rem rgba(47,133,90,0.25);
+}
+
+/* Cards, icons, badges */
+.card-storm {
+  background: var(--storm-panel);
+  border: 1px solid rgb(255, 255, 255);
+}
+/* .icon-circle {
+  width: 3rem; height: 3rem;
+  display: grid; place-items: center;
+  border-radius: 999px;
+  background: rgba(80,200,120,0.18);
+  border: 1px solid rgba(80,200,120,0.25);
+} */
+.badge-soft {
+  background: var(--storm-panel);
+  color: #CFF5DA;
+  border: 1px solid rgba(110, 80, 200, 0.25);
+}
+
+/* Text + structure */
+.border-soft { border-color: rgba(255,255,255,0.08)!important; }
+.text-muted { color: var(--storm-muted)!important; }
+.section-pad { padding: 5rem 0; }
+
+/* Footer */
+.footer-link { color: var(--storm-muted); text-decoration: none; }
+.footer-link:hover { color: var(--storm-text); }
+.site-footer { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); }
+
+/* Progress bars & accents */
+.progress-bar {
+  background: linear-gradient(90deg, var(--storm-primary), var(--storm-accent));
+}
+
+/* Buttons */
+.btn-storm {
+  --bs-btn-bg: var(--storm-primary);
+  --bs-btn-border-color: var(--storm-primary);
+  --bs-btn-hover-bg: var(--storm-accent);
+  --bs-btn-hover-border-color: var(--storm-accent);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+}
+.btn-outline-storm {
+  --bs-btn-color: var(--storm-primary);
+  --bs-btn-border-color: var(--storm-primary);
+  --bs-btn-hover-bg: var(--storm-primary);
+  --bs-btn-hover-border-color: var(--storm-primary);
+  --bs-btn-hover-color: #fff;
+}
+
+/* Bootstrap theme hooks */
+[data-bs-theme="dark"] {
+  --bs-primary: var(--storm-primary);
+  --bs-link-color: var(--storm-primary);
+  --bs-link-hover-color: var(--storm-accent);
+}
+
+.gradient-sphere {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 750px;
+  height: 250px;
+  border-radius: 50%;
+  
+  background: radial-gradient(
+    circle at center,
+    rgb(153, 0, 255),
+    rgba(197, 255, 121, 0) 70%
+  );
+  
+  filter: blur(200px);
+  z-index: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  /* full viewport height */
+}
+
+main, header, section {
+  flex: 1 0 auto;  /* make content grow */
+}
+
+footer.site-footer {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 0;
+}
+
+header .hero-image {
+  max-width: 75%;
+  height: auto;
+  opacity: 0.6;
+  border-radius: 1rem;
+  /* mix-blend-mode: lighten; */
+  filter: drop-shadow(0 0 20px rgba(255, 225, 105, 0.1));
+  transition: all 0.3s ease;
+}
+
+header .hero-image:hover {
+  opacity: 1;
+  transform: scale(1.03);
+  filter: drop-shadow(0 0 40px rgba(255, 225, 105, 0.2));
+}
+
