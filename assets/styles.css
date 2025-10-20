@@ -8,7 +8,7 @@ Fresh emerald-green palette — clean, modern, and vivid.
   --storm-accent:  #87408f10; /* deep forest accent */
   --storm-bg:      #6f6e751f; /* rich dark evergreen background #bc919172; #6f6e7572;*/
   --storm-panel:   #da3f654c; /* secondary panel surface */
-  --storm-text:    #5e5266; /* light mint white text */
+  --storm-text:    #5a535f; /* light mint white text #5e5266*/
   --storm-muted:   #a0c4eb; /* desaturated moss tone */
   --storm-gradient:
     radial-gradient(1000px 500px at 20% -10%, rgba(80,200,120,0.30), rgba(47,133,90,0.15) 40%, rgba(14,28,20,0) 70%),
@@ -65,7 +65,7 @@ html, body {
 
 /* Text + structure */
 .border-soft { border-color: rgba(255,255,255,0.08)!important; }
-.text-muted { color: var(--storm-muted)!important; }
+.text-muted { color: var(--storm-text)!important; }
 .section-pad { padding: 5rem 0; }
 
 /* Footer */
@@ -80,19 +80,19 @@ html, body {
 
 /* Buttons */
 .btn-storm {
-  --bs-btn-bg: var(--storm-primary);
+  --bs-btn-bg: var(--storm-accent);
   --bs-btn-border-color: var(--storm-primary);
-  --bs-btn-hover-bg: var(--storm-accent);
-  --bs-btn-hover-border-color: var(--storm-accent);
-  --bs-btn-color: #fff;
-  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--storm-primary);
+  --bs-btn-hover-border-color: var(--storm-primary);
+  --bs-btn-color: var(--storm-primary);
+  --bs-btn-hover-color: #000000;
 }
 .btn-outline-storm {
   --bs-btn-color: var(--storm-primary);
   --bs-btn-border-color: var(--storm-primary);
   --bs-btn-hover-bg: var(--storm-primary);
   --bs-btn-hover-border-color: var(--storm-primary);
-  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-color: var(--storm-text);
 }
 
 /* Bootstrap theme hooks */
@@ -171,18 +171,40 @@ nav, header, main, footer { position: relative; z-index: 1; }
 /* Mobile: stronger hue, smaller radius */
 @media (max-width: 768px) {
   .gradient-sphere {
-    width: 480px;
-    height: 180px;
+    width: 450px;
+    height: 150px;
     background: radial-gradient(
       circle at center,
-      rgba(153, 0, 255, 0.65) 0%,
-      rgba(153, 0, 255, 0.40) 40%,
-      rgba(106, 28, 145, 0.22) 60%,
-      rgba(106, 28, 145, 0.00) 80%
+      rgba(153, 0, 255, 0.65) 1%,
+      rgba(153, 0, 255, 0.40) 15%,
+      rgba(106, 28, 145, 0.22) 30%,
+      rgba(106, 28, 145, 0.00) 60%
     );
-    opacity: 0.85;
-    -webkit-filter: blur(130px);
-    filter: blur(130px);
+    opacity: 0.75;
+    -webkit-filter: blur(180px);
+    filter: blur(180px);
   }
 }
 
+/* Navbar link colors */
+.navbar .nav-link {
+  color: var(--storm-text);                 /* default link color */
+  transition: color .2s ease;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--storm-primary);              /* hover color */
+}
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
+  color: var(--storm-primary);              /* active page color */
+  font-weight: 600;
+}
+
+/* (optional) brand color too */
+.navbar .navbar-brand {
+  color: var(--storm-text);
+}
+.navbar .navbar-brand:hover {
+  color: var(--storm-primary);
+}
