@@ -5,10 +5,10 @@ Fresh emerald-green palette — clean, modern, and vivid.
 
 :root {
   --storm-primary: #2ec0ff; /* emerald green */
-  --storm-accent:  #bd2b4dbf; /* deep forest accent */
-  --storm-bg:      #bc919172; /* rich dark evergreen background */
+  --storm-accent:  #87408f10; /* deep forest accent */
+  --storm-bg:      #6f6e751f; /* rich dark evergreen background #bc919172; #6f6e7572;*/
   --storm-panel:   #da3f654c; /* secondary panel surface */
-  --storm-text:    #817070; /* light mint white text */
+  --storm-text:    #5e5266; /* light mint white text */
   --storm-muted:   #a0c4eb; /* desaturated moss tone */
   --storm-gradient:
     radial-gradient(1000px 500px at 20% -10%, rgba(80,200,120,0.30), rgba(47,133,90,0.15) 40%, rgba(14,28,20,0) 70%),
@@ -42,7 +42,7 @@ html, body {
   border: 1px solid rgba(255,255,255,0.05);
 }
 .glow {
-  box-shadow: 0 0 2rem rgb(80, 118, 200), 0 0 2rem rgba(47,133,90,0.25);
+  box-shadow: 0 0 2rem rgba(80, 118, 200, 0.329), 0 0 2rem rgba(91, 80, 101, 0.303);
 }
 
 /* Cards, icons, badges */
@@ -157,10 +157,10 @@ nav, header, main, footer { position: relative; z-index: 1; }
   border-radius: 50%;
   background: radial-gradient(
     circle at center,
-    rgba(153, 0, 255, 0.55) 0%,
-    rgba(153, 0, 255, 0.35) 35%,
-    rgba(106, 28, 145, 0.20) 55%,
-    rgba(106, 28, 145, 0.00) 75%
+    rgba(153, 0, 255, 0.55) 1%,
+    rgba(153, 0, 255, 0.35) 15%,
+    rgba(106, 28, 145, 0.20) 30%,
+    rgba(106, 28, 145, 0.00) 60%
   );
   -webkit-filter: blur(180px);
   filter: blur(180px);
