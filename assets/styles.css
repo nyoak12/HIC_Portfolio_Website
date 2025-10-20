@@ -115,7 +115,7 @@ html, body {
   background: radial-gradient(
     circle at center,
     rgb(153, 0, 255),
-    rgba(197, 255, 121, 0) 70%
+    rgba(105, 136, 64, 0) 70%
   );
   
   filter: blur(200px);
@@ -158,5 +158,40 @@ header .hero-image:hover {
   opacity: 1;
   transform: scale(1.03);
   filter: drop-shadow(0 0 40px rgba(255, 225, 105, 0.2));
+}
+
+ 
+/* Keep page content above the glow */
+nav, header, main, footer { position: relative; z-index: 1; }
+
+/* Make the sphere a true backdrop */
+.gradient-sphere {
+  position: fixed;                 /* was absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgb(153, 0, 255),
+    rgba(105, 136, 64, 0) 70%
+  );
+  -webkit-filter: blur(200px);
+  filter: blur(200px);
+  z-index: 0;
+  pointer-events: none;            /* never block clicks */
+}
+
+/* Show it on phones too, just smaller/softer */
+@media (max-width: 768px) {
+  .gradient-sphere {
+    width: 420px;
+    height: 160px;
+    -webkit-filter: blur(140px);
+    filter: blur(140px);
+    opacity: 0.95;
+  }
 }
 
