@@ -20,16 +20,16 @@ html, body {
   height: 100%;
   margin:0;
   color: var(--storm-text); 
-  background-color:var(--storm-bg);
+  background-color: none !important;
   /* background-color: #0f0e18; */
 }
 
-/* Gradient background for hero and sections
+/* /* Gradient background for hero and sections */
 .bg-storm {
-  background: var(--storm-bg) !important;
+  /* background: var(--storm-bg) !important; */
   background-size: cover;
   background-repeat: no-repeat;
-} */
+} 
 
 /* Navbar */
 .nav-gradient {
