@@ -14,17 +14,15 @@
   <body class="bg-storm">
     <div class="gradient-sphere"></div>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg sticky-top nav-gradient">
       <div class="container py-2">
         <a class="navbar-brand fw-semibold" href="index.html">
           <i class="bi bi-fingerprint" style="color:var(--storm-primary)"></i> Nate Yoak
         </a>
-
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div id="nav" class="collapse navbar-collapse">
           <ul class="navbar-nav ms-auto gap-lg-2">
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -36,47 +34,35 @@
       </div>
     </nav>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <main class="section-pad text-center">
       <div class="container">
-
-        <!-- Social Icons -->
         <div class="mb-5">
           <div class="d-flex justify-content-center gap-5">
-            <a href="https://www.linkedin.com/in/nate-yoak" class="footer-link">
-              <i class="bi bi-linkedin" style="font-size:3rem;"></i>
-            </a>
-            <a href="https://discord.com/users/your_discord_id_here" class="footer-link">
-              <i class="bi bi-discord" style="font-size:3rem;"></i>
-            </a>
+            <a href="https://www.linkedin.com/in/nate-yoak" class="footer-link"><i class="bi bi-linkedin" style="font-size:3rem;"></i></a>
+            <a href="https://discord.com/users/1215772054352302090" class="footer-link"><i class="bi bi-discord" style="font-size:3rem;"></i></a>
           </div>
         </div>
 
         <span class="badge badge-soft mb-3">Get in Touch</span>
-        <p class="text-muted mb-5">
-          Whether you’d like to collaborate, discuss an idea, or just say hi — feel free to reach out!
-        </p>
+        <p class="text-muted mb-5">Whether you’d like to collaborate, discuss an idea, or just say hi — feel free to reach out!</p>
 
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6 glass p-4 rounded-4">
-
-            <!-- Contact Form -->
-            <form id="contactForm" class="mt-2">
+            <form id="contactForm" class="mt-2" novalidate>
               <div class="mb-3 text-start">
                 <label for="name" class="form-label">Your Name</label>
-                <input type="text" id="name" name="name" class="form-control"
+                <input type="text" id="name" class="form-control"
                        style="background-color: var(--storm-accent); color: var(--storm-text);" required>
               </div>
-
               <div class="mb-3 text-start">
                 <label for="email" class="form-label">Your Email</label>
-                <input type="email" id="email" name="email" class="form-control"
+                <input type="email" id="email" class="form-control"
                        style="background-color: var(--storm-accent); color: var(--storm-text);" required>
               </div>
-
               <div class="mb-3 text-start">
                 <label for="message" class="form-label">Message</label>
-                <textarea id="message" name="message" rows="4" class="form-control"
+                <textarea id="message" rows="4" class="form-control"
                           style="background-color: var(--storm-accent); color: var(--storm-text);" required></textarea>
               </div>
 
@@ -85,13 +71,12 @@
               </button>
 
               <div id="alert-success" class="alert alert-success mt-3 d-none" role="alert">
-                ✉️ Your mail app should have opened. Send it from there.
+                ✉️ Your mail app should have opened with my address prefilled.
               </div>
               <div id="alert-error" class="alert alert-danger mt-3 d-none" role="alert">
-                ❌ Couldn’t open an email app on this device.
+                ❌ Couldn’t open a mail app on this device.
               </div>
             </form>
-
           </div>
         </div>
       </div>
@@ -112,83 +97,41 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Contact Form Script -->
-  <script>
-  (function () {
-    const FORM = document.getElementById("contactForm");
-    const ALERT_OK = document.getElementById("alert-success");
-    const ALERT_ERR = document.getElementById("alert-error");
-
-    // Your exact recipient (To)
-    const TO_DISPLAY = '"Nate Yoak" <nyoak@kent.edu>';   // display name + angle brackets
-    const TO_PLAIN   = 'nyoak@kent.edu';                 // plain email for web compose URLs
-
-    function show(el){ el.classList.remove("d-none"); }
-    function hide(el){ el.classList.add("d-none"); }
-
-    function buildBody(name, email, message) {
-      // DO NOT put a naked email address anywhere else; label it so clients don't try to replace To:
-      const lines = [
-        "New message from nateyoak.com",
-        "",
-        message,
-        "",
-        `— ${name || "Visitor"}`,
-        `Reply to (do not change To): ${email || "(no email)"}`
-      ];
-      return encodeURIComponent(lines.join("\r\n"));
-    }
-
-    // Standard mailto using encoded display-name + angle-bracket address
-    function openMailApp(subject, body) {
-      // Percent-encode the entire path (including < >)
-      const toEncoded = encodeURIComponent(TO_DISPLAY);
-      const href = `mailto:${toEncoded}?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-      // Anchor click tends to behave better than assigning window.location on mobile
-      const a = document.createElement("a");
-      a.href = href;
-      a.style.display = "none";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-
-      setTimeout(() => {
-        if (document.hasFocus()) { hide(ALERT_OK); show(ALERT_ERR); }
-        else { hide(ALERT_ERR); show(ALERT_OK); }
-      }, 1200);
-    }
-
-    // Optional: open Gmail/Outlook web compose with explicit "to"
-    function openGmail(subject, body) {
-      const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(TO_PLAIN)}&su=${encodeURIComponent(subject)}&body=${body}`;
-      window.open(url, "_blank", "noopener");
-    }
-    function openOutlook(subject, body) {
-      const url = `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(TO_PLAIN)}&subject=${encodeURIComponent(subject)}&body=${body}`;
-      window.open(url, "_blank", "noopener");
-    }
-
-    FORM.addEventListener("submit", (e) => {
+    <!-- Mail logic -->
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      hide(ALERT_OK); hide(ALERT_ERR);
-
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const message = document.getElementById("message").value.trim();
 
-      const subject = name ? `Contact from ${name}` : "Contact from website";
-      const body = buildBody(name, email, message);
+      // Your address is always the recipient
+      const to = "nyoak@kent.edu";
+      const subject = `Message from ${name}`;
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\n${message}\n\n— sent from nateyoak.com`
+      );
 
-      // If user is on Gmail or Outlook web already, prefer direct compose:
-      const ua = navigator.userAgent.toLowerCase();
-      if (ua.includes("gmail")) { openGmail(subject, body); return; }
-      if (ua.includes("outlook") || ua.includes("hotmail") || ua.includes("office")) { openOutlook(subject, body); return; }
+      // Build mailto URL
+      const mailtoURL = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
 
-      // Otherwise use mailto (Apple Mail, Outlook app, iOS Mail, etc.)
-      openMailApp(subject, body);
+      // Open user mail app
+      window.location.href = mailtoURL;
+
+      // Show alerts
+      const ok = document.getElementById("alert-success");
+      const err = document.getElementById("alert-error");
+
+      setTimeout(() => {
+        if (document.hasFocus()) {
+          err.classList.remove("d-none");
+          ok.classList.add("d-none");
+        } else {
+          ok.classList.remove("d-none");
+          err.classList.add("d-none");
+        }
+      }, 1500);
     });
-  })();
-  </script>
+    </script>
   </body>
 </html>
