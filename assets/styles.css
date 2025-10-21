@@ -7,7 +7,7 @@ Fresh emerald-green palette — clean, modern, and vivid.
 :root {
   --storm-primary: #2ec0ff; /* emerald green */
   --storm-accent:  #87408f10; /* deep forest accent */
-  --storm-bg:      rgba(154, 148, 195, 0.05); /* rich dark evergreen background #bc919172; #6f6e7572; #6f6e751f*/
+  --storm-bg:      rgba(154, 148, 195, 0.075); /* rich dark evergreen background #bc919172; #6f6e7572; #6f6e751f*/
   --storm-panel:   #5d5a5f; /* secondary panel surface */
   --storm-text:    #6f6b72; /* light mint white text #5e5266.  5a535f*/
   --storm-muted:   #a0c4eb; /* desaturated moss tone */
@@ -205,17 +205,19 @@ nav, header, main, footer { position: relative; z-index: 1; }
   transform: scale(1.1);
 }
 
+
 /* ===== Mobile-only color and opacity adjustments ===== */
 @media (max-width: 768px) {
   :root {
     /* override color palette variables for mobile */
-    --storm-primary: #3eb3ff;   /* slightly softer blue for mobile */
-    --storm-accent:  #5e2b7f20; /* lighter accent tone */
-    --storm-bg:      rgba(154, 148, 195, 0.75); /* adjust opacity */
-    --storm-panel:   #4a4750;   /* slightly lighter panels */
-    --storm-text:    #77757d;   /* more contrast for readability */
-    --storm-muted:   #a8c8ef;   /* subtle shift for mobile theme */
+    --storm-primary: #2ec0ff;   /* slightly softer blue for mobile */
+    --storm-accent:  #87408f10; /* lighter accent tone */
+    --storm-bg:      rgba(154, 148, 195, 0.5); /* adjust opacity */
+    --storm-panel:   #5d5a5f;   /* slightly lighter panels */
+    --storm-text:    #6f6b72;   /* more contrast for readability */
+    --storm-muted:   #a0c4eb;  /* subtle shift for mobile theme */
   }
+
 
   /* optional: make certain items slightly transparent */
   .glass, .card, .hero {
