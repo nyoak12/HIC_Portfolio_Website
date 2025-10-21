@@ -9,7 +9,7 @@ Fresh emerald-green palette — clean, modern, and vivid.
   --storm-accent:  #87408f10; /* deep forest accent */
   --storm-bg:      rgba(154, 148, 195, 0.3); /* rich dark evergreen background #bc919172; #6f6e7572; #6f6e751f*/
   --storm-panel:   #5d5a5f; /* secondary panel surface */
-  --storm-text:    #666369; /* light mint white text #5e5266.  5a535f*/
+  --storm-text:    #6f6b72; /* light mint white text #5e5266.  5a535f*/
   --storm-muted:   #a0c4eb; /* desaturated moss tone */
   --storm-gradient:
     radial-gradient(1000px 500px at 20% -10%, rgba(80,200,120,0.30), rgba(47,133,90,0.15) 40%, rgba(14,28,20,0) 70%),
