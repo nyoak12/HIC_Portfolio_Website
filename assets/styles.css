@@ -17,14 +17,18 @@ Fresh emerald-green palette — clean, modern, and vivid.
 
 /* Base background and text */
 html, body {
-  /* background: var(--storm-bg); */
-  color: var(--storm-text);
+  height: 100%;
+  margin:0;
+  color: var(--storm-text); 
+  background: none !important;
 }
 
 /* Gradient background for hero and sections */
 .bg-storm {
-  background: var(--storm-bg);
-  /* border: 10px solid rgba(217, 255, 0, 0.042); */
+  background: var(--storm-bg) !important;
+  background-attachment: fixed; /* optional for nice scrolling effect */
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* Navbar */
