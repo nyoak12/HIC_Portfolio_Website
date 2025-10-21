@@ -64,7 +64,7 @@ html, body {
 } */
 .badge-soft {
   background: var(--storm-panel);
-  color: #CFF5DA;
+  color: var(--storm-muted);
   border: 1px solid rgba(110, 80, 200, 0.25);
 }
 
@@ -106,7 +106,6 @@ html, body {
   --bs-link-color: var(--storm-primary);
   --bs-link-hover-color: var(--storm-accent);
 }
-
 
 
 html, body {
@@ -205,3 +204,4 @@ nav, header, main, footer { position: relative; z-index: 1; }
   color: var(--storm-primary);
   transform: scale(1.1);
 }
+
