@@ -113,36 +113,82 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Contact Form Script -->
-    <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
+  <script>
+  (function () {
+    const FORM = document.getElementById("contactForm");
+    const ALERT_OK = document.getElementById("alert-success");
+    const ALERT_ERR = document.getElementById("alert-error");
+
+    // Your exact recipient (To)
+    const TO_DISPLAY = '"Nate Yoak" <nyoak@kent.edu>';   // display name + angle brackets
+    const TO_PLAIN   = 'nyoak@kent.edu';                 // plain email for web compose URLs
+
+    function show(el){ el.classList.remove("d-none"); }
+    function hide(el){ el.classList.add("d-none"); }
+
+    function buildBody(name, email, message) {
+      // DO NOT put a naked email address anywhere else; label it so clients don't try to replace To:
+      const lines = [
+        "New message from nateyoak.com",
+        "",
+        message,
+        "",
+        `— ${name || "Visitor"}`,
+        `Reply to (do not change To): ${email || "(no email)"}`
+      ];
+      return encodeURIComponent(lines.join("\r\n"));
+    }
+
+    // Standard mailto using encoded display-name + angle-bracket address
+    function openMailApp(subject, body) {
+      // Percent-encode the entire path (including < >)
+      const toEncoded = encodeURIComponent(TO_DISPLAY);
+      const href = `mailto:${toEncoded}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+      // Anchor click tends to behave better than assigning window.location on mobile
+      const a = document.createElement("a");
+      a.href = href;
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      setTimeout(() => {
+        if (document.hasFocus()) { hide(ALERT_OK); show(ALERT_ERR); }
+        else { hide(ALERT_ERR); show(ALERT_OK); }
+      }, 1200);
+    }
+
+    // Optional: open Gmail/Outlook web compose with explicit "to"
+    function openGmail(subject, body) {
+      const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(TO_PLAIN)}&su=${encodeURIComponent(subject)}&body=${body}`;
+      window.open(url, "_blank", "noopener");
+    }
+    function openOutlook(subject, body) {
+      const url = `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(TO_PLAIN)}&subject=${encodeURIComponent(subject)}&body=${body}`;
+      window.open(url, "_blank", "noopener");
+    }
+
+    FORM.addEventListener("submit", (e) => {
       e.preventDefault();
+      hide(ALERT_OK); hide(ALERT_ERR);
 
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const message = document.getElementById("message").value.trim();
 
-      const subject = `New message from ${name}`;
-      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+      const subject = name ? `Contact from ${name}` : "Contact from website";
+      const body = buildBody(name, email, message);
 
-      const mailtoLink = `mailto:nyoak12@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      // If user is on Gmail or Outlook web already, prefer direct compose:
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.includes("gmail")) { openGmail(subject, body); return; }
+      if (ua.includes("outlook") || ua.includes("hotmail") || ua.includes("office")) { openOutlook(subject, body); return; }
 
-      // Try to open mail app
-      window.location.href = mailtoLink;
-
-      const success = document.getElementById("alert-success");
-      const error = document.getElementById("alert-error");
-
-      // Simple heuristic: if focus returns quickly, assume no mail app
-      setTimeout(() => {
-        if (document.hasFocus()) {
-          error.classList.remove("d-none");
-          success.classList.add("d-none");
-        } else {
-          success.classList.remove("d-none");
-          error.classList.add("d-none");
-        }
-      }, 1500);
+      // Otherwise use mailto (Apple Mail, Outlook app, iOS Mail, etc.)
+      openMailApp(subject, body);
     });
-    </script>
+  })();
+  </script>
   </body>
 </html>
