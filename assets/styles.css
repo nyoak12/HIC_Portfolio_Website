@@ -212,9 +212,9 @@ nav, header, main, footer { position: relative; z-index: 1; }
     /* override color palette variables for mobile */
     --storm-primary: #2ec0ff;   /* slightly softer blue for mobile */
     --storm-accent:  #87408f10; /* lighter accent tone */
-    --storm-bg:      rgba(154, 148, 195, 0.5); /* adjust opacity */
+    --storm-bg:      rgba(154, 148, 195, 0.25); /* adjust opacity */
     --storm-panel:   #5d5a5f;   /* slightly lighter panels */
-    --storm-text:    #ffffff;   /* more contrast for readability */
+    --storm-text:    #000000;   /* more contrast for readability */
     --storm-muted:   #a0c4eb;  /* subtle shift for mobile theme */
   }
 
