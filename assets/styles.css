@@ -211,7 +211,7 @@ nav, header, main, footer { position: relative; z-index: 1; }
     /* override color palette variables for mobile */
   --storm-primary: #2ec0ff; /* emerald green */
   --storm-accent:  #87408f10; /* deep forest accent */
-  --storm-bg:      rgba(154, 148, 195, 0.25); /* rich dark evergreen background #bc919172; #6f6e7572; #6f6e751f*/
+  --storm-bg:      rgba(154, 148, 195, 0.15); /* rich dark evergreen background #bc919172; #6f6e7572; #6f6e751f*/
   --storm-panel:   #5d5a5f; /* secondary panel surface */
   --storm-text:    #6f6b72ca; /*rgba(178, 164, 185, 0.508);           /* #6f6b72;  light mint white text #5e5266.  5a535f*/
   --storm-muted:   #a0c4eb; /* desaturated moss tone */
